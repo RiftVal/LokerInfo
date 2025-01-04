@@ -68,8 +68,20 @@
                             <li><a href="{{ url('/job') }}">Cari Pekerjaan</a></li>
                             <li><a href="{{ url('/savedJob') }}">Pekerjaan disimpan</a></li>
                             <li><a href="{{ url('/myApp') }}">Lamaran saya</a></li>
-                            <li><a href="{{ url('/login') }}">Login</a></li>
-                            <li><a href=""></a></li>
+                            @if (auth()->check())
+                          
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('logout') }}">Logout</a>
+                            </li>
+                         @else
+                            <!-- Jika belum login -->
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('login') }}">Login</a>
+                            </li>
+                         @endif
+
+                            {{-- <li><a href="{{ url('/login') }}">Login</a></li> --}}
+                            {{-- <li><a href="{{ url('/logout') }}">logout</a></li> --}}
                         </ul>
                         
                     </nav>

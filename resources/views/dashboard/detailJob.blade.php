@@ -18,6 +18,7 @@
       </div>
     </div>
     <!-- Hero Area End -->
+
     <!-- job post company Start -->
     <div class="job-post-company pt-120 pb-120">
       <div class="container">
@@ -34,13 +35,13 @@
                 </div>
                 <div class="job-tittle">
                   <a href="#">
-                    <h4>Digital Marketer</h4>
+                    <h4>{{ $data->job_name }}</h4>
                   </a>
                   <ul>
                     <li>
-                      <i class="fas fa-map-marker-alt"></i>Athens, Greece
+                      <i class="fas fa-map-marker-alt"></i>{{ $data->job_location }}
                     </li>
-                    <li>$3500 - $4000</li>
+                    <li>${{ $data->job_salary }}</li>
                   </ul>
                 </div>
               </div>
@@ -54,12 +55,7 @@
                   <h4>Job Description</h4>
                 </div>
                 <p>
-                  It is a long established fact that a reader will beff
-                  distracted by vbthe creadable content of a page when looking
-                  at its layout. The pointf of using Lorem Ipsum is that it
-                  has ahf mcore or-lgess normal distribution of letters, as
-                  opposed to using, Content here content here making it look
-                  like readable.
+                  {{ $data->job_desc }}
                 </p>
               </div>
               <div class="post-details2 mb-50">
@@ -68,7 +64,7 @@
                   <h4>Required Knowledge, Skills, and Abilities</h4>
                 </div>
                 <ul>
-                  <li>System Software Development</li>
+                  <li>{{ $data->job_require }}</li>
                   <li>
                     Mobile Applicationin iOS/Android/Tizen or other platform
                   </li>
@@ -100,9 +96,9 @@
                 <h4>Job Overview</h4>
               </div>
               <ul>
-                <li>Posted date : <span>12 Aug 2019</span></li>
-                <li>Location : <span>New York</span></li>
-                <li>Job nature : <span>Full time</span></li>
+                <li>Posted date : <span>{{ $data->created_at }}</span></li>
+                <li>Location : <span>{{ $data->job_location }}</span></li>
+                <li>Job nature : <span>{{ $data->employment_type }}</span></li>
                 <li>Exp date : <span>12 Sep 2020</span></li>
               </ul>
               <div class="apply-btn2">
@@ -116,14 +112,13 @@
               </div>
               <span>Ziggo</span>
               <p>
-                It is a long established fact that a reader will be distracted
-                by the readable content of a page when looking at its layout.
+                {{ $data->job_companiesDesc }}
               </p>
-              <ul>
+              {{-- <ul>
                 <li>Name: <span>Colorlib </span></li>
                 <li>Web : <span> colorlib.com</span></li>
                 <li>Email: <span>carrier.colorlib@gmail.com</span></li>
-              </ul>
+              </ul> --}}
             </div>
           </div>
         </div>

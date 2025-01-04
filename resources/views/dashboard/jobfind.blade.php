@@ -89,12 +89,9 @@
                 <div class="single-job-items mb-30">
                   <div class="job-items">
                     <div class="company-img">
-                      <a href="#"
-                        ><img src="{{asset('assets/img/icon/job-list1.png')}}" alt=""
-                      /></a>
+                      <a href="{{ route('job.show', $item->id) }}"><img src="{{asset('assets/img/icon/job-list1.png')}}" alt=""/>
                     </div>
                     <div class="job-tittle job-tittle2">
-                      <a href="#">
                         <h4>{{$item->job_name}}</h4>
                       </a>
                       <ul>
@@ -110,7 +107,6 @@
                     <span>{{$item->created_at}}</span>
                   </div>
                 </div>
-
                 
               @endforeach
 

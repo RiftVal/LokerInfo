@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class JobController extends Controller
 {
-    public function comapaniesJob()
+    public function index()
     {
         $data = jobModel::all();
         return view("dashboard.jobfind", compact('data'));

@@ -102,7 +102,10 @@
                 <li>Exp date : <span>12 Sep 2020</span></li>
               </ul>
               <div class="apply-btn2">
-                <a href="{{ route('job.applicant', $data->id) }}" class="btn">Apply Now</a>
+                <div class="row">
+                  <div class="ml-2"><a href="{{ route('job.applicant', $data->id) }}" class="btn">Apply Now</a></div>
+                  <div class="ml-2"><a href="{{ route('job.applicant', $data->id) }}" class="btn">Favorite</a></div>
+                </div>
               </div>
             </div>
             <div class="post-details4 mb-50">

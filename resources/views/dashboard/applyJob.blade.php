@@ -5,7 +5,8 @@
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-8">
-            <form action="{{route('job.storeApplicant')}}" method="POST">
+            <form action="{{route('job.storeApplicant')}}" method="POST" enctype="multipart/form-data">
+                <?php var_dump(route('job.storeApplicant'))?>
                 @csrf <!-- Token CSRF untuk keamanan -->
                 
                 <div class="mb-3">
@@ -20,7 +21,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="user_id" class="form-label">No Telp</label>
-                    <input class="form-control" type="text" name="no_telp" placeholder="No tep">
+                    <input class="form-control" type="text" name="no_telp" placeholder="No telp">
                 </div>
                 <div class="mb-3">
                     <label for="user_id" class="form-label">Resume</label>

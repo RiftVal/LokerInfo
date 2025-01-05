@@ -41,7 +41,7 @@ class JobController extends Controller
             'job_require' => $request->job_require,
             'employment_type' => $request->employment_type,
         ]);
-        return redirect()->back()->with('success','Data MAhasiswa berhaisl disimpan');
+        return redirect()->back()->with('success','Data berhasil disimpan');
     }
     public function show($id)
     {
@@ -72,8 +72,8 @@ class JobController extends Controller
             'name' => $request->name, 
             'home_location' => $request->home_location, 
             'no_telp' => $request->no_telp, 
-            'resume' => $request->resume, 
-            'surat_lamaran' => $request->surat_lamaran, 
+            'resume' => $request->file('resume')->store('resumes', 'public'), // Menyimpan file resume
+            'surat_lamaran' => $request->file('surat_lamaran')->store('surat_lamaran', 'public'), // Menyimpan file surat lamaran
             'user_id' => $request->user_id, 
             'job_id' => $request->job_id, 
 

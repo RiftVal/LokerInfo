@@ -66,8 +66,10 @@
                         <ul id="navigation">
                             <li><a href="{{ url('/') }}">Home</a></li>
                             <li><a href="{{ url('/job') }}">Cari Pekerjaan</a></li>
-                            <li><a href="{{ url('/savedJob') }}">Pekerjaan disimpan</a></li>
+                            @if (auth()->check())
+                            {{-- <li><a href="{{ url('/savedJob')}}">Pekerjaan disimpan</a></li> --}}
                             <li><a href="{{ url('/myApp') }}">Lamaran saya</a></li>
+                            @endif
                             @if (auth()->check())
                           
                             <li class="nav-item">

@@ -102,10 +102,16 @@
                 <li>Exp date : <span>12 Sep 2020</span></li>
               </ul>
               <div class="apply-btn2">
+                @if (auth()->check())
                 <div class="row">
+                 
                   <div class="ml-2"><a href="{{ route('job.applicant', $data->id) }}" class="btn">Apply Now</a></div>
-                  <div class="ml-2"><a href="{{ route('job.applicant', $data->id) }}" class="btn">Favorite</a></div>
+                
+                  {{-- <div class="ml-2"><a href="" class="btn">Favorite</a></div> --}}
                 </div>
+                @else
+                <div class="ml-2"><a href="{{ route('login') }}" class="btn">Apply Now</a></div>
+                @endif
               </div>
             </div>
             <div class="post-details4 mb-50">
@@ -117,11 +123,6 @@
               <p>
                 {{ $data->job_companiesDesc }}
               </p>
-              {{-- <ul>
-                <li>Name: <span>Colorlib </span></li>
-                <li>Web : <span> colorlib.com</span></li>
-                <li>Email: <span>carrier.colorlib@gmail.com</span></li>
-              </ul> --}}
             </div>
           </div>
         </div>

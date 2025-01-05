@@ -20,9 +20,7 @@ Route::get('/savedJob', function () {
 Route::get('/detailJob', function () {
     return view('dashboard/detailJob');  
 });
-Route::get('/myApp', function () {
-    return view('dashboard/myApplicant');  
-});
+
 
 // Route::view('dashboard', 'dashboard')
 //     ->middleware(['auth', 'verified'])
@@ -32,15 +30,18 @@ Route::get('/myApp', function () {
 //     ->middleware(['auth'])
 //     ->name('profile');
 Route::get('/dashboard', function () {
+    // dd('dashboard/home');
     return view('dashboard/home');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 
+
 Route::get('logout', [UserController::class, 'logout'])->name('logout');
 Route::resource('job',JobController::class);
-Route::resource('CompaniesJob',JobController::class);
+Route::get('/CompaniesJob', [JobController::class, 'companiesJob'])->name('job.companiesJob');
 Route::get('/job/{id}', [JobController::class, 'show'])->name('job.show');
 Route::get('/job.applicant/{id}', [JobController::class, 'applicant'])->name('job.applicant');
-Route::post('/applicant', [jobController::class, 'storeApplicant'])->name('job.storeApplicant');
+Route::post('applicants/{id}', [jobController::class, 'storeApplicant'])->name('job.storeApplicant');
+Route::get('/myApp', [jobController::class, 'myApplicant'])->name('job.jobApplicant');
 
 require __DIR__.'/auth.php';

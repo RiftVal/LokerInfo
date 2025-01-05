@@ -10,7 +10,7 @@
     <link
       rel="shortcut icon"
       type="image/x-icon"
-      href="public/assets/img/favicon.ico"
+      href="{{asset('assets/img/logo/logo.png')}}"
     />
 
     <!-- CSS here -->
@@ -33,7 +33,7 @@
 
   <body>
     <!-- Preloader Start -->
-    {{-- <div id="preloader-active">
+  <div id="preloader-active">
       <div class="preloader d-flex align-items-center justify-content-center">
         <div class="preloader-inner position-relative">
           <div class="preloader-circle"></div>
@@ -42,7 +42,7 @@
           </div>
         </div>
       </div>
-    </div> --}}
+    </div>
     <!-- Preloader Start -->
     <header>
       <!-- Header Start -->
@@ -53,7 +53,7 @@
               <div class="col-lg-3 col-md-2">
                 <!-- Logo -->
                 <div class="logo">
-                  <a href="index.html"
+                  <a href="{{ url('/') }}"
                     ><img src="{{asset('assets/img/logo/logo.png')}}" alt=""
                   /></a>
                 </div>

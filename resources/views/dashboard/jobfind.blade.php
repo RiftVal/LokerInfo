@@ -103,7 +103,7 @@
                     </div>
                   </div>
                   <div class="items-link items-link2 f-right">
-                    <a href="job_details.html">{{$item->employment_type}}</a>
+                    <a href="{{ route('job.show', $item->id) }}">{{$item->employment_type}}</a>
                     <span>{{$item->created_at}}</span>
                   </div>
                 </div>

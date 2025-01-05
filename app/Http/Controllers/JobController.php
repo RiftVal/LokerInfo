@@ -45,10 +45,40 @@ class JobController extends Controller
     }
     public function show($id)
     {
-        // Mengambil data pekerjaan berdasarkan ID
         $data = jobModel::findOrFail($id);
 
-        // Mengirim data pekerjaan ke view
         return view('dashboard.detailJob', compact('data'));
+    }
+    public function applicant($id)
+    {
+          $data = jobModel::findOrFail($id);
+
+        return view('dashboard.applyJob', compact('data'));
+    }
+    public function storeApplicant(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|max:255', 
+            'home_location' => 'required|string', 
+            'no_telp' => 'required|string', 
+            'resume' => 'required|file|mimes:pdf,doc,docx|max:10240',
+            'surat_lamaran' => 'required|file|mimes:pdf,doc,docx|max:10240',
+            'user_id' => 'required|string|max:255', 
+            'job_id' => 'required|string|max:255', 
+
+        ]);
+
+        jobModel::create([
+            'name' => $request->name, 
+            'home_location' => $request->home_location, 
+            'no_telp' => $request->no_telp, 
+            'resume' => $request->resume, 
+            'surat_lamaran' => $request->surat_lamaran, 
+            'user_id' => $request->user_id, 
+            'job_id' => $request->job_id, 
+
+        ]);
+        return redirect()->back()->with('success','Data MAhasiswa berhaisl disimpan');
+ 
     }
 }

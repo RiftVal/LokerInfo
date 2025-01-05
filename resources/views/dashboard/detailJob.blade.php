@@ -102,7 +102,7 @@
                 <li>Exp date : <span>12 Sep 2020</span></li>
               </ul>
               <div class="apply-btn2">
-                <a href="#" class="btn">Apply Now</a>
+                <a href="{{ route('job.applicant', $data->id) }}" class="btn">Apply Now</a>
               </div>
             </div>
             <div class="post-details4 mb-50">
@@ -126,4 +126,4 @@
     </div>
     <!-- job post company End -->
   </main>
-  @include('layouts/footer');
+  @include('layouts/footer')

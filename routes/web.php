@@ -37,5 +37,7 @@ Route::get('logout', [UserController::class, 'logout'])->name('logout');
 Route::resource('job',JobController::class);
 Route::resource('CompaniesJob',JobController::class);
 Route::get('/job/{id}', [JobController::class, 'show'])->name('job.show');
+Route::get('/job.applicant/{id}', [JobController::class, 'applicant'])->name('job.applicant');
+Route::post('/apply-job', [jobController::class, 'store'])->name('job.storeApplicant');
 
 require __DIR__.'/auth.php';

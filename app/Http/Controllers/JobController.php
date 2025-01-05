@@ -11,9 +11,12 @@ class JobController extends Controller
     {
         $data = jobModel::all();
         return view("dashboard.jobfind", compact('data'));
+        $data = JobModel::all();  // Pastikan menggunakan model yang sesuai dengan database Anda
+        // Mempassing data ke view 'home'
+        return view('dashboard.home', compact('data'));
     }
 
-    public function index()
+    public function  index()
     {
         $data = jobModel::all();
         return view("companies.jobAdd", compact('data'));

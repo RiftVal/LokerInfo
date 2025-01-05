@@ -12,15 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('job_applicant', function (Blueprint $table) {
-            // $table->id(); 
-            // $table->string('job_name'); 
-            // $table->text('job_desc'); 
-            // $table->string('job_companiesDesc'); 
-            // $table->string('job_location'); 
-            // $table->string('job_salary'); 
-            // $table->string('job_require');
-            // $table->enum('employment_type', ['Full-time', 'Part-time', 'Contract', 'Internship']); // Tipe pekerjaan
-            // $table->timestamps();
+            $table->id(); 
+            $table->string('job_name'); 
+            $table->text('job_desc'); 
+            $table->string('job_companiesDesc'); 
+            $table->string('job_location'); 
+            $table->string('job_salary'); 
+            $table->string('job_require');
+            $table->enum('employment_type', ['Full-time', 'Part-time', 'Contract', 'Internship']); // Tipe pekerjaan
+            $table->timestamps();
         });
     }
 

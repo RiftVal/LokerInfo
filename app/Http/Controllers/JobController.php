@@ -16,7 +16,7 @@ class JobController extends Controller
         return view('home', compact('data'));
     }
 
-    public function  comapaniesJob()
+    public function  comapaniesJob ()
     {
         $data = jobModel::all();
         return view("companies.jobAdd", compact('data'));

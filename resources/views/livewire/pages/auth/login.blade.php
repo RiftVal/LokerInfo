@@ -19,8 +19,12 @@ new #[Layout('layouts.guest')] class extends Component
         $this->form->authenticate();
 
         Session::regenerate();
-
-        $this->redirectIntended(default: route('dashboard', absolute: false), navigate: true);
+        if(auth()->user()->id == 1){
+            $this->redirectIntended(default: route('job.companiesJob', absolute: false), navigate: true);
+        }
+        else{
+            $this->redirectIntended(default: route('dashboard', absolute: false), navigate: true);
+        }
     }
 }; ?>
 

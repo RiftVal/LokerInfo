@@ -7,16 +7,16 @@ use Illuminate\Http\Request;
 
 class JobController extends Controller
 {
-    public function comapaniesJob()
+    public function index()
     {
         $data = jobModel::all();
         return view("dashboard.jobfind", compact('data'));
         $data = JobModel::all();  // Pastikan menggunakan model yang sesuai dengan database Anda
         // Mempassing data ke view 'home'
-        return view('dashboard.home', compact('data'));
+        return view('home', compact('data'));
     }
 
-    public function  index()
+    public function  comapaniesJob()
     {
         $data = jobModel::all();
         return view("companies.jobAdd", compact('data'));

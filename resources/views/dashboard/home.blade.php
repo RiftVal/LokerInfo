@@ -1,4 +1,4 @@
-    @include('layouts/header')
+@include('layouts/header')
     <main>
       <!-- slider Area Start-->
       <div class="slider-area">

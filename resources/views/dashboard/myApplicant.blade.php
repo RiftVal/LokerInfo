@@ -12,10 +12,18 @@
                 <td>Surat Lamaran</td>
             </tr>
         </thead>
+        
         <tbody>
-            <tr>
-
-            </tr>
+            @foreach ($data as $item)
+                <tr>
+                    <td>{{$loop->iteration}}</td>
+                    <td>{{$item->name}}</td>
+                    <td>{{$item->home_location}}</td>
+                    <td>{{$item->no_telp}}</td>
+                    <td><a href="{{asset('storage/'.$item->resume)}}">Link Resume</a></td>
+                    <td><a href="{{asset('storage/'.$item->job_applicant)}}">Link Job Applicant</a></td>
+                </tr>
+            @endforeach
         </tbody>
       </table>
 </div>

@@ -45,7 +45,7 @@
                 </div>
               </div>
             </div>
-            <!-- Job Category Listing start -->
+            {{-- <!-- Job Category Listing start -->
             <div class="job-category-listing mb-50">
               <!-- single one -->
               <div class="single-listing">
@@ -65,7 +65,7 @@
                 <!--  Select job items End-->
               </div>
               <!-- single two -->
-            </div>
+            </div> --}}
             <!-- Job Category Listing End -->
           </div>
           <!-- Right content -->
@@ -77,7 +77,7 @@
                 <div class="row">
                   <div class="col-lg-12">
                     <div class="count-job mb-35">
-                      <span>39, 782 Jobs found</span>
+                      <span>{{$totalJobs}} Jobs found</span>
                     </div>
                   </div>
                 </div>
@@ -119,7 +119,7 @@
     </div>
     <!-- Job List Area End -->
     <!--Pagination Start  -->
-    <div class="pagination-area pb-115 text-center">
+    {{-- <div class="pagination-area pb-115 text-center">
       <div class="container">
         <div class="row">
           <div class="col-xl-12">
@@ -146,7 +146,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> --}}
     <!--Pagination End -->
   </main>
   @include('layouts/footer');

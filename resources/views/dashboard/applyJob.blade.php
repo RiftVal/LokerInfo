@@ -6,8 +6,8 @@
         <div class="col-md-2"></div>
         <div class="col-md-8">
             <form action="{{route('job.storeApplicant',['id'=>$data->id])}}" method="POST" enctype="multipart/form-data">
-                @csrf
-                
+                {{-- @dd(route('job.storeApplicant',['id'=>$data->id])) --}}
+                @csrf    
                 <div class="mb-3">
                     <label for="user_id" class="form-label">Name</label>
                     <input class="form-control" type="text" name="name" placeholder="your name">

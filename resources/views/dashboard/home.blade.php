@@ -20,14 +20,14 @@
               <div class="row">
                 <div class="col-xl-8">
                   <!-- form -->
-                  <form action="#" class="search-box">
+                  {{-- <form action="#" class="search-box">
                     <div class="input-form">
                       <input type="text" placeholder="Job Tittle or keyword" />
                     </div>
                     <div class="search-form">
                       <button>Find job</button>
                     </div>
-                  </form>
+                  </form> --}}
                 </div>
               </div>
             </div>
@@ -141,132 +141,17 @@
           <!-- Section Button -->
           <div class="row">
             <div class="col-lg-12">
-              <div class="browse-btn2 text-center mt-50">
+              {{-- <div class="browse-btn2 text-center mt-50">
                 <a href="{{ url('/job') }}" class="border-btn2"
                   >Browse All Sectors</a
                 >
-              </div>
+              </div> --}}
             </div>
           </div>
         </div>
       </div>
       <!-- Our Services End -->
 
-      <!-- Featured_job_start -->
-      <section class="featured-job-area feature-padding">
-        <div class="container">
-          <!-- Section Tittle -->
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="section-tittle text-center">
-                <span>Recent Job</span>
-                <h2>Featured Jobs</h2>
-              </div>
-            </div>
-          </div>
-          <div class="row justify-content-center">
-            <div class="col-xl-10">
-              <!-- single-job-content -->
-              <div class="single-job-items mb-30">
-                <div class="job-items">
-                  <div class="company-img">
-                    <a href="/"
-                      ><img src="{{asset('assets/img/icon/job-list1.png')}}" alt=""
-                    /></a>
-                  </div>
-                  <div class="job-tittle">
-                    <a href=""><h4>Digital Marketer</h4></a>
-                    <ul>
-                      <li>Creative Agency</li>
-                      <li>
-                        <i class="fas fa-map-marker-alt"></i>Athens, Greece
-                      </li>
-                      <li>$3500 - $4000</li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="items-link f-right">
-                  <a href="">Full Time</a>
-                  <span>7 hours ago</span>
-                </div>
-              </div>
-              <!-- single-job-content -->
-              <div class="single-job-items mb-30">
-                <div class="job-items">
-                  <div class="company-img">
-                    <a href=""
-                      ><img src="{{asset('assets/img/icon/job-list2.png')}}" alt=""
-                    /></a>
-                  </div>
-                  <div class="job-tittle">
-                    <a href=""><h4>Digital Marketer</h4></a>
-                    <ul>
-                      <li>Creative Agency</li>
-                      <li>
-                        <i class="fas fa-map-marker-alt"></i>Athens, Greece
-                      </li>
-                      <li>$3500 - $4000</li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="items-link f-right">
-                  <a href="">Full Time</a>
-                  <span>7 hours ago</span>
-                </div>
-              </div>
-              <!-- single-job-content -->
-              <div class="single-job-items mb-30">
-                <div class="job-items">
-                  <div class="company-img">
-                    <a href=""
-                      ><img src="{{asset('assets/img/icon/job-list3.png')}}" alt=""
-                    /></a>
-                  </div>
-                  <div class="job-tittle">
-                    <a href=""><h4>Digital Marketer</h4></a>
-                    <ul>
-                      <li>Creative Agency</li>
-                      <li>
-                        <i class="fas fa-map-marker-alt"></i>Athens, Greece
-                      </li>
-                      <li>$3500 - $4000</li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="items-link f-right">
-                  <a href="">Full Time</a>
-                  <span>7 hours ago</span>
-                </div>
-              </div>
-              <!-- single-job-content -->
-              <div class="single-job-items mb-30">
-                <div class="job-items">
-                  <div class="company-img">
-                    <a href=""
-                      ><img src="{{asset('assets/img/icon/job-list4.png')}}" alt=""
-                    /></a>
-                  </div>
-                  <div class="job-tittle">
-                    <a href=""><h4>Digital Marketer</h4></a>
-                    <ul>
-                      <li>Creative Agency</li>
-                      <li>
-                        <i class="fas fa-map-marker-alt"></i>Athens, Greece
-                      </li>
-                      <li>$3500 - $4000</li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="items-link f-right">
-                  <a href="">Full Time</a>
-                  <span>7 hours ago</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- Featured_job_end -->
       <!-- How  Apply Process Start-->
       <div
         class="apply-process-area apply-bg pt-150 pb-150"

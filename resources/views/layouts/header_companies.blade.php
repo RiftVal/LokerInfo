@@ -46,9 +46,14 @@
             <hr class="sidebar-divider my-0">
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="{{ url('job') }}">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                <a class="nav-link" href="{{ url('/CompaniesJob') }}">
+                    <i class="fas fa-fw fa-plus"></i>
                     <span>Add Job</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ url('/applicantLetter') }}">
+                    <i class="fas fa-fw fa-envelope"></i>
+                    <span>Applicant</span></a>
             </li>
 
 

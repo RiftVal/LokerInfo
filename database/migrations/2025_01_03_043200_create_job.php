@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('job_location'); 
             $table->string('job_salary'); 
             $table->string('job_require');
-            $table->enum('employment_type', ['Full-time', 'Part-time', 'Contract', 'Internship']); // Tipe pekerjaan
+            $table->enum('employment_type', ['Full-time', 'Part-time', 'Contract', 'Internship']);
             $table->timestamps();
         });
     }

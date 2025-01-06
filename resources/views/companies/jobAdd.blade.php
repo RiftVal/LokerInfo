@@ -53,6 +53,7 @@
                                 <select name="employment_type" id="employment_type" class="form-control">
                                     <option value="Full-time">Full</option>
                                     <option value="Part-time">Part</option>
+                                    <option value="Contract">Contract</option>
                                 </select>
                             </div>
 
@@ -60,6 +61,13 @@
                                 <label for="message-text" class="col-form-label">Require:</label>
                                 <textarea class="form-control" id="message-text" name="job_require"></textarea>
                             </div>
+                            {{-- <div>
+                                <label for="job_image">Job Image</label>
+                                <input type="file" id="job_image" name="job_image">
+                                @error('job_image')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div> --}}
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

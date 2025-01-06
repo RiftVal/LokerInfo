@@ -4,25 +4,35 @@ namespace App\Http\Controllers;
 
 use App\Models\jobModel;
 use Illuminate\Http\Request;
+use App\Models\jobApplicant;
 
 class JobController extends Controller
 {
     public function index()
     {
+        $totalJobs = JobModel::count(); 
         $data = jobModel::all();
-        return view("dashboard.jobfind", compact('data'));
-        $data = JobModel::all();  // Pastikan menggunakan model yang sesuai dengan database Anda
-        // Mempassing data ke view 'home'
-        return view('home', compact('data'));
-        // Logika atau data yang ingin ditampilkan
-        $data = jobModel::all(); // Contoh data
-        return view('dashboard.myApplicant', compact('data'));
-    }
+        return view("dashboard.jobfind", compact('data','totalJobs'));
+   }
 
-    public function comapaniesJob()
+    public function companiesJob()
     {
         $data = jobModel::all();
         return view("companies.jobAdd", compact('data'));
+    }
+    public function myApplicant()
+    {
+        $data = jobApplicant::query();
+        if(auth()->user()){
+            $data = $data->where('user_id',auth()->user()->id);
+        }
+        $data = $data->get();
+        return view("dashboard/myApplicant", compact('data'));
+    }
+    public function applicantLetter()
+    {
+        $data = jobApplicant::all();
+        return view("companies.applicantLetter", compact('data'));
     }
 
     public function store(Request $request)
@@ -35,7 +45,13 @@ class JobController extends Controller
             'job_salary' => 'required|string', 
             'job_require' => 'required|string|max:255', 
             'employment_type' => 'required|in:Full-time,Part-time,Contract,Internship', 
-        ]);
+     ]);
+
+    //    $imagePath = null;
+    //    if ($request->hasFile('job_image')) {
+    //        $image = $request->file('job_image');
+    //        $imagePath = $image->store('images', 'public'); // Menyimpan gambar di folder 'public/images'
+    //    }
 
         jobModel::create([
             'job_name' => $request->job_name,
@@ -61,28 +77,26 @@ class JobController extends Controller
         return view('dashboard.applyJob', compact('data'));
     }
 
-    public function storeApplicant(Request $request)
+    public function storeApplicant(Request $request,$id)
     {
         $request->validate([
             'name' => 'required|max:255', 
             'home_location' => 'required|string', 
             'no_telp' => 'required|string', 
             'resume' => 'required|file|mimes:pdf,doc,docx|max:10240',
-            'surat_lamaran' => 'required|file|mimes:pdf,doc,docx|max:10240',
-            'user_id' => 'required|string|max:255', 
-            'job_id' => 'required|string|max:255', 
+            'job_applicant' => 'required|file|mimes:pdf,doc,docx|max:10240',
         ]);
-
-        jobModel::create([
+        
+        jobApplicant::create([
             'name' => $request->name, 
             'home_location' => $request->home_location, 
             'no_telp' => $request->no_telp, 
             'resume' => $request->file('resume')->store('resumes', 'public'),
-            'surat_lamaran' => $request->file('surat_lamaran')->store('surat_lamaran', 'public'),
-            'user_id' => $request->user_id, 
-            'job_id' => $request->job_id, 
+            'job_applicant' => $request->file('job_applicant')->store('job_applicant', 'public'),
+            'user_id' => auth()->user()->id, 
+            'job_id' => $id, 
         ]);
-        return redirect()->back()->with('success','Data Mahasiswa berhasil disimpan');
+        return redirect()->route('job.jobApplicant')->with('success','Data berhaisl disimpan');
     }
 
     // Update Job

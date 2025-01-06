@@ -60,18 +60,18 @@
         printWindow.document.write(`<td>${jobRow.querySelector('.job-telp').innerText}</td>`);
         
         // Use Blade to insert the asset path correctly
-        var actionsIndex = Array.from(headerRow.children).findIndex(th => th.textContent === 'Actions');
-        if (actionsIndex !== -1) {
+        //var actionsIndex = Array.from(headerRow.children).findIndex(th => th.textContent === 'Actions');
+       // if (actionsIndex !== -1) {
             // Remove the "Actions" column in the header
-            headerRow.children[actionsIndex].remove();
+           // headerRow.children[actionsIndex].remove();
 
             // Remove the "Actions" column in each body row
-            bodyRows.forEach(row => {
-                row.children[actionsIndex].remove();
-            });
-        }        
-        printWindow.document.write(`<td><a href="${resumeLink}" target="_blank">Link Resume</a></td>`);
-        printWindow.document.write(`<td><a href="${jobApplicantLink}" target="_blank">Link Job Applicant</a></td></tr>`);
+           // bodyRows.forEach(row => {
+             //   row.children[actionsIndex].remove();
+            //});
+       // }        
+       // printWindow.document.write(`<td><a href="${resumeLink}" target="_blank">Link Resume</a></td>`);
+        //printWindow.document.write(`<td><a href="${jobApplicantLink}" target="_blank">Link Job Applicant</a></td></tr>`);
         
         printWindow.document.write('</table></body></html>');
         printWindow.document.close();

@@ -23,7 +23,8 @@
 
     <!-- Custom styles for this template-->
     <link href="{{asset('assets/css/sb-admin-2.min.css')}}" rel="stylesheet">
-   
+    <link href="{{asset('assets/css/darkmode.css')}}" rel="stylesheet">
+</head>
 </head>
 
 <body id="page-top">
@@ -73,6 +74,9 @@
                     <!-- Sidebar Toggle (Topbar) -->
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
+                    </button>
+                    <button id="darkModeToggle" class="btn btn-outline-secondary">
+                        🌙
                     </button>
 
                     <!-- Topbar Navbar -->

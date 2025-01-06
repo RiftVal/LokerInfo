@@ -1,0 +1,69 @@
+/* Default (Light Mode) */
+:root {
+    --background-color: #ffffff;
+    --text-color: #000000;
+    --sidebar-bg: #4e73df;
+    --topbar-bg: #ffffff;
+    --topbar-text: #000000;
+    --link-color: #007bff;
+}
+
+[data-theme="dark"] {
+    --background-color: #121212;
+    --text-color: #ffffff;
+    --sidebar-bg: #333333;
+    --topbar-bg: #1a1a1a;
+    --topbar-text: #dddddd;
+    --link-color: #66b2ff;
+}
+
+/* Apply background and text colors based on theme */
+body {
+    background-color: var(--background-color) !important;
+    color: var(--text-color) !important;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Navbar styling */
+.navbar {
+    background-color: var(--topbar-bg) !important;
+    color: var(--topbar-text) !important;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.navbar .nav-link {
+    color: var(--topbar-text) !important;
+}
+
+.navbar .btn-outline-secondary {
+    color: var(--topbar-text);
+    border-color: var(--topbar-text);
+}
+
+.navbar .btn-outline-secondary:hover {
+    background-color: var(--topbar-text);
+    color: var(--topbar-bg);
+}
+
+/* Sidebar styling */
+.sidebar {
+    background-color: var(--sidebar-bg) !important;
+    transition: background-color 0.3s;
+}
+
+.sidebar .nav-item {
+    color: var(--text-color) !important;
+}
+
+.sidebar .nav-item:hover {
+    background-color: var(--sidebar-bg) !important;
+}
+
+/* Link Color */
+a {
+    color: var(--link-color);
+}
+
+a:hover {
+    color: var(--text-color);
+}

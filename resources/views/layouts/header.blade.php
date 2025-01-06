@@ -65,10 +65,10 @@
                     <nav class="d-none d-lg-block">
                         <ul id="navigation">
                             <li><a href="{{ url('/') }}">Home</a></li>
-                            <li><a href="{{ url('/job') }}">Cari Pekerjaan</a></li>
+                            <li><a href="{{ url('/job') }}">Find a job</a></li>
                             @if (auth()->check())
                             {{-- <li><a href="{{ url('/savedJob')}}">Pekerjaan disimpan</a></li> --}}
-                            <li><a href="{{ url('/myApp') }}">Lamaran saya</a></li>
+                            <li><a href="{{ url('/myApp') }}">My Applicant</a></li>
                             @endif
                             @if (auth()->check())
                           

@@ -98,7 +98,7 @@
                         <li>
                           <i class="fas fa-map-marker-alt"></i>{{$item->job_location}}
                         </li>
-                        <li>{{$item->job_salary}}</li>
+                        <li>${{$item->job_salary}}</li>
                       </ul>
                     </div>
                   </div>

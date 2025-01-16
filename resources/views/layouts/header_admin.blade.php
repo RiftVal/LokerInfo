@@ -47,14 +47,19 @@
             <hr class="sidebar-divider my-0">
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="{{ url('/CompaniesJob') }}">
+                <a class="nav-link" href="{{ route('admin.index') }}">
                     <i class="fas fa-fw fa-plus"></i>
-                    <span>Add Category</span></a>
+                    <span>Dashboard</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="{{ url('/applicantLetter') }}">
+                <a class="nav-link" href="{{ route('admin.category') }}">
                     <i class="fas fa-fw fa-envelope"></i>
-                    <span>Total Job</span></a>
+                    <span>Category</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ route('admin.feedback') }}">
+                    <i class="fas fa-fw fa-envelope"></i>
+                    <span>Feedback</span></a>
             </li>
 
 

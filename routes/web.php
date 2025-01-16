@@ -26,6 +26,7 @@ Route::get('/detailJob', function () {
 Route::get('/feedback', function () {
     return view('dashboard/feedback');  
 });
+
 // Route::get('/myApp', function () {
 //     return view('dashboard/myApplicant');  
 // });
@@ -55,8 +56,13 @@ Route::get('/job.applicant/{id}', [JobController::class, 'applicant'])->name('jo
 Route::post('/applicants/{id}', [jobController::class, 'storeApplicant'])->name('job.storeApplicant');
 Route::get('/myApp', [jobController::class, 'myApplicant'])->name('job.jobApplicant');
 Route::post('/feedback', [feedbackController::class, 'store'])->name('feedback.store');
+Route::post('/categoryStore', [AdminController::class, 'store'])->name('admin.store');
+Route::get('/category/{id}', [AdminController::class, 'update'])->name('admin.update');
 
 Route::get('/admin',[AdminController::class,'index'])->name('admin.index');
+
+Route::get('/category', [AdminController::class, 'category'])->name('admin.category');
+Route::get('/feedbackAdmin', [AdminController::class, 'feedback'])->name('admin.feedback');
 
 Route::post('/favorites', [FavoriteController::class, 'store']); // Tambah favorite
 Route::delete('/favorites', [FavoriteController::class, 'destroy']); // Hapus favorite

@@ -18,8 +18,34 @@
             </div>
         </div>
     </div>
+    <!-- Button for printing all jobs -->
+    <button class="btn btn-info mb-3" onclick="printAllJobs()">Print All Jobs</button>
+
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">My Recruitment</h6>
+           
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Name</th>
+                            <th>Home Location</th>
+                            <th>No Telp</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
-</div>
+
 <script>
     // Function to print individual job details
     function printJob(button) {

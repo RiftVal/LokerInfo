@@ -3,63 +3,58 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Feedback;
+use App\Models\Category;
 use App\Models\jobModel;
 
 class AdminController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
-        //
-        $totaljob=JobModel::count();
-
-        return view('admin.admin', ['totaljob' => $totaljob]);
+        $totaljob = JobModel::count();
+        return view("admin.admin", compact('totaljob'));
     }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function category()
     {
-        //
+        $data = Category::all();
+        return view("admin.categoryAdmin", compact('data'));
+    }
+    public function Feedback()
+    {
+        $data = Feedback::all();
+        return view("admin.feedbackAdmin", compact('data'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
-        $tambahkategori=Category::count();
-        return view('admin.admin', ['tambahkategori' => $tambahkategori]);
+        $request->validate([
+            'name' => 'required|max:255',
+            'slug' => 'required|string',
+        ]);
+        
+        Category::create([
+            'name' => $request->name,
+            'slug' => $request->slug,
+       ]);
+        return redirect()->back()->with('success','Data berhaisl disimpan');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function update(Request $request, $id)
     {
-        //
-    }
+        // Validate the incoming request
+        $request->validate([
+            'name' => 'required|max:255', 
+            'slug' => 'required|string',  
+        ]);
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
+        $cat = Category::findOrFail($id);
+        $cat->name = $request->name;
+        $cat->slug = $request->slug;
+        $cat->save();
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
+        return redirect()->back()->with('success', 'Data pekerjaan berhasil diperbarui');
     }
-
     /**
      * Remove the specified resource from storage.
      */

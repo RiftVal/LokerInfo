@@ -11,6 +11,7 @@
             <div class="col-xl-12">
               <div class="hero-cap text-center">
                 <h2>Get your job</h2>
+                <h2>category </h2>
               </div>
             </div>
           </div>
@@ -93,6 +94,7 @@
                     </div>
                     <div class="job-tittle job-tittle2">
                         <h4>{{$item->job_name}}</h4>
+                        {{-- {{$item->categories->name}} --}}
                       </a>
                       <ul>
                         <li>

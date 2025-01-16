@@ -11,7 +11,7 @@ class JobController extends Controller
     public function index()
     {
         $totalJobs = JobModel::count(); 
-        $data = jobModel::all();
+        $data = jobModel::with('category')->get();
         return view("dashboard.jobfind", compact('data','totalJobs'));
    }
 

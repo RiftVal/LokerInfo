@@ -70,6 +70,7 @@
                             {{-- <li><a href="{{ url('/savedJob')}}">Pekerjaan disimpan</a></li> --}}
                             <li><a href="{{ url('/myApp') }}">My Applicant</a></li>
                             @endif
+                            <li><a href="{{ url('/feedback') }}">Contact US</a></li>
                             @if (auth()->check())
                           
                             <li class="nav-item">

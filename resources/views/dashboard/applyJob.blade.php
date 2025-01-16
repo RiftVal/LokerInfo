@@ -26,6 +26,8 @@
                 <div class="mb-3">
                     <label for="user_id" class="form-label">No Telp</label>
                     <input class="form-control" type="text" name="no_telp" placeholder="No telp">
+                    <input class="form-control" type="hidden" name="status" value="pending">
+                    <input class="form-control" type="hidden" name="slug" value="-">
                  @error('no_telp')
                        <span class="text-danger">{{$message}}</span> 
                     @enderror

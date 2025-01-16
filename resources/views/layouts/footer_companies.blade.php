@@ -1,3 +1,5 @@
+ <html>
+<body>
     
             <!-- Footer -->
             <footer class="sticky-footer bg-white">

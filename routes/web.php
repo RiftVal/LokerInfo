@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\FavoriteController;
+use App\Http\Controllers\AdminController;
 
 
 
@@ -53,6 +54,8 @@ Route::get('/job.applicant/{id}', [JobController::class, 'applicant'])->name('jo
 Route::post('/applicants/{id}', [jobController::class, 'storeApplicant'])->name('job.storeApplicant');
 Route::get('/myApp', [jobController::class, 'myApplicant'])->name('job.jobApplicant');
 Route::post('/feedback', [feedbackController::class, 'store'])->name('feedback.store');
+
+Route::get('/admin',[AdminController::class,'index'])->name('admin.index');
 
 Route::post('/favorites', [FavoriteController::class, 'store']); // Tambah favorite
 Route::delete('/favorites', [FavoriteController::class, 'destroy']); // Hapus favorite

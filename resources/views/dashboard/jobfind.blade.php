@@ -11,7 +11,6 @@
             <div class="col-xl-12">
               <div class="hero-cap text-center">
                 <h2>Get your job</h2>
-                <h2>category </h2>
               </div>
             </div>
           </div>
@@ -46,27 +45,33 @@
                 </div>
               </div>
             </div>
-            {{-- <!-- Job Category Listing start -->
+            <!-- Job Category Listing start -->
             <div class="job-category-listing mb-50">
               <!-- single one -->
               <div class="single-listing">
                 <div class="small-section-tittle2">
                   <h4>Job Category</h4>
                 </div>
+                
                 <!-- Select job items start -->
                 <div class="select-job-items2 mb-5">
-                  <select name="select">
-                    <option value="">All Category</option>
-                    <option value="">Category 1</option>
-                    <option value="">Category 2</option>
-                    <option value="">Category 3</option>
-                    <option value="">Category 4</option>
-                  </select>
+                  <form action="" method="GET">
+                    <select name="category_id">
+                        <option value="">Select Category</option>
+                        @foreach($category as $cat)
+                            <option value="{{ $cat->id }}" {{ request('category_id') == $cat->id ? 'selected' : '' }}>
+                                {{ $cat->name }}
+                            </option>
+                        @endforeach
+                    </select>
+                    <button type="submit" class="btn btn-primary mt-3">Search</button>
+                </form>
                 </div>
+              
                 <!--  Select job items End-->
               </div>
               <!-- single two -->
-            </div> --}}
+            </div>
             <!-- Job Category Listing End -->
           </div>
           <!-- Right content -->
@@ -121,7 +126,7 @@
     </div>
     <!-- Job List Area End -->
     <!--Pagination Start  -->
-    {{-- <div class="pagination-area pb-115 text-center">
+    <div class="pagination-area pb-115 text-center">
       <div class="container">
         <div class="row">
           <div class="col-xl-12">
@@ -148,7 +153,7 @@
           </div>
         </div>
       </div>
-    </div> --}}
+    </div>
     <!--Pagination End -->
   </main>
   @include('layouts/footer');

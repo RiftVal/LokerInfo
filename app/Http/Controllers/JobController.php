@@ -5,20 +5,23 @@ namespace App\Http\Controllers;
 use App\Models\jobModel;
 use Illuminate\Http\Request;
 use App\Models\jobApplicant;
+use App\Models\Category;
 
 class JobController extends Controller
 {
     public function index()
     {
         $totalJobs = JobModel::count(); 
-        $data = jobModel::with('category')->get();
-        return view("dashboard.jobfind", compact('data','totalJobs'));
+        $data = jobModel::all();
+        $category = Category::all();
+        return view("dashboard.jobfind", compact('data','totalJobs','category'));
    }
 
     public function companiesJob()
     {
         $data = jobModel::all();
-        return view("companies.jobAdd", compact('data'));
+        $category = Category::all();
+        return view("companies.jobAdd", compact('data','category'));
     }
     public function myApplicant()
     {
@@ -38,6 +41,7 @@ class JobController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'category_id' =>'required',
             'job_name' => 'required|max:255', 
             'job_desc' => 'required|string', 
             'job_companiesDesc' => 'required|string', 
@@ -47,13 +51,8 @@ class JobController extends Controller
             'employment_type' => 'required|in:Full-time,Part-time,Contract,Internship', 
      ]);
 
-    //    $imagePath = null;
-    //    if ($request->hasFile('job_image')) {
-    //        $image = $request->file('job_image');
-    //        $imagePath = $image->store('images', 'public'); // Menyimpan gambar di folder 'public/images'
-    //    }
-
         jobModel::create([
+            'category_id' =>$request->category_id,
             'job_name' => $request->job_name,
             'job_desc' => $request->job_desc,
             'job_companiesDesc' => $request->job_companiesDesc,

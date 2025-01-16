@@ -106,12 +106,12 @@
                 <div class="row">
                  
                   <div class="ml-2"><a href="{{ route('job.applicant', $data->id) }}" class="btn">Apply Now</a></div>
-                  <form action="{{ route('favorites.store') }}" method="POST">
+                  {{-- <form action="{{ route('favorites.store') }}" method="POST">
                     @csrf
                     <input type="hidden" name="user_id" value="{{auth()->check()}}">
                     <input type="hidden" name="job_id" value="{{$data->id}}">
                     <button type="submit" class="btn">Tambah ke Favorit</button>
-                </form>
+                </form> --}}
 {{--     
                   <div class="ml-2"><a href="" class="btn">Favorite</a></div> --}}
                 </div>

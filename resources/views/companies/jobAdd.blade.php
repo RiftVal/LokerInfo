@@ -56,6 +56,15 @@
                                     <option value="Contract">Contract</option>
                                 </select>
                             </div>
+                            <div class="mb-3">
+                                <label for="category_id" class="col-form-label">Employment Type</label>
+                                <select name="category_id" id="category_id" class="form-control">
+                                    @foreach($category as $cat)
+                                    <option value="{{$cat->id}}">{{$cat->name}}</option>
+                                    @endforeach
+                                   
+                                </select>
+                            </div>
 
                             <div class="mb-3">
                                 <label for="message-text" class="col-form-label">Require:</label>
@@ -108,6 +117,7 @@
                         @foreach ($data as $item)
                         <tr id="jobRow{{ $item->id }}">
                             <td>{{ $loop->iteration }}</td>
+                            <td class="job-employment-type">{{ $item->category_id }}</td>
                             <td class="job-name">{{ $item->job_name }}</td>
                             <td class="job-desc">{{ $item->job_desc }}</td>
                             <td class="job-companiesDesc">{{ $item->job_companiesDesc }}</td>
@@ -181,6 +191,13 @@
                                                         <option value="Part-time" {{ $item->employment_type == 'Part-time' ? 'selected' : '' }}>Part</option>
                                                     </select>
                                                 </div>
+                                                {{-- <select name="category_id" id="category_id" class="form-control">
+                                                    @foreach($data as $cat)
+                                                        <option value="{{ $cat->id }}" {{ $cat->id == $selectedCategoryId ? 'selected' : '' }}>
+                                                            {{ $cat->name }}
+                                                        </option>
+                                                    @endforeach
+                                                </select> --}}
 
                                                 <div class="mb-3">
                                                     <label for="job_require" class="col-form-label">Require</label>

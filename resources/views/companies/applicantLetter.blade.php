@@ -18,6 +18,8 @@
                             <th>Home Location</th>
                             <th>No Telp</th>
                             <th>Resume</th>
+                            <th>Status</th>
+                            <th>Notifkasi</th>
                             <th>Job Applicant</th>
                             <th>Actions</th> <!-- Column for the Print button -->
                         </tr>
@@ -29,13 +31,51 @@
                             <td class="job-name">{{ $item->name }}</td>
                             <td class="job-location">{{ $item->home_location }}</td>
                             <td class="job-telp">{{ $item->no_telp }}</td>
+                            <td class="job-telp">{{ $item->status }}</td>
+                            <td class="job-telp">{{ $item->slug }}</td>
                             <td><a href="{{ asset('storage/'.$item->resume) }}" class="btn btn-primary" target="_blank">Link Resume</a></td>
                             <td><a href="{{ asset('storage/'.$item->job_applicant) }}" class="btn btn-primary" target="_blank">Link Job Applicant</a></td>
                             <td>
                                 <!-- Print Button for each row -->
                                 <button class="btn btn-info btn-sm" data-job-id="{{ $item->id }}" onclick="printJob(this)">Print</button>
+                                <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editJobModal{{ $item->id }}">Validasi</button>
+                            
                             </td>
                         </tr>
+                        
+                        <div class="modal fade" id="editJobModal{{ $item->id }}" tabindex="-1" aria-labelledby="editJobModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="editJobModalLabel">Edit Job</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form action="{{ route('job.updateApplicant', $item->id) }}" method="POST">
+                                            @csrf
+                                            @method('PUT')
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="mb-3">
+                                                        <label for="status" class="col-form-label">Status</label>
+                                                        <input type="text" name="status" class="form-control" value="{{ $item->status }}">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="slug" class="col-form-label">Slug</label>
+                                                        <input type="text" name="slug" class="form-control" value="{{ $item->slug }}">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-primary">Save changes</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         @endforeach
                     </tbody>
                 </table>

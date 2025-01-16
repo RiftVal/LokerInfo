@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('no_telp');
             $table->string('resume');
             $table->string('job_applicant');
+            $table->string('status');
+            $table->string('slug');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('job_id');
             $table->timestamps();

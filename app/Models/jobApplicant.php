@@ -9,7 +9,10 @@ class jobApplicant extends Model
 {
     
     protected $table = 'job_applicants';
-    protected $guarded = [];
+    protected $guarded = ['id'];
     
-
+    public function status()
+    {
+        return $this->belongsTo(Status::class);
+    }
 }

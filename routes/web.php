@@ -49,6 +49,7 @@ Route::resource('job',JobController::class);
 Route::get('/CompaniesJob', [JobController::class, 'companiesJob'])->name('job.companiesJob');
 Route::get('/applicantLetter', [JobController::class, 'applicantLetter'])->name('job.applicantLetter');
 Route::get('/job/{id}', [JobController::class, 'show'])->name('job.show');
+Route::put('/jobApplicant/{id}', [JobController::class, 'updateApplicant'])->name('job.updateApplicant');
 Route::get('/job.applicant/{id}', [JobController::class, 'applicant'])->name('job.applicant');
 Route::post('/applicants/{id}', [jobController::class, 'storeApplicant'])->name('job.storeApplicant');
 Route::get('/myApp', [jobController::class, 'myApplicant'])->name('job.jobApplicant');

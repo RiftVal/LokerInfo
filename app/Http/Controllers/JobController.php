@@ -34,7 +34,7 @@ class JobController extends Controller
     }
     public function applicantLetter()
     {
-        $data = jobApplicant::all();
+        $data = jobApplicant::with('Status')->get();
         return view("companies.applicantLetter", compact('data'));
     }
 
@@ -82,6 +82,8 @@ class JobController extends Controller
             'name' => 'required|max:255', 
             'home_location' => 'required|string', 
             'no_telp' => 'required|string', 
+            'status' => 'required|string', 
+            'slug' => 'required|string', 
             'resume' => 'required|file|mimes:pdf,doc,docx|max:10240',
             'job_applicant' => 'required|file|mimes:pdf,doc,docx|max:10240',
         ]);
@@ -90,6 +92,8 @@ class JobController extends Controller
             'name' => $request->name, 
             'home_location' => $request->home_location, 
             'no_telp' => $request->no_telp, 
+            'status' => $request->status, 
+            'slug' => $request->slug, 
             'resume' => $request->file('resume')->store('resumes', 'public'),
             'job_applicant' => $request->file('job_applicant')->store('job_applicant', 'public'),
             'user_id' => auth()->user()->id, 
@@ -125,6 +129,23 @@ class JobController extends Controller
 
         return redirect()->back()->with('success', 'Data pekerjaan berhasil diperbarui');
     }
+
+    public function updateApplicant(Request $request, $id)
+    {
+        $request->validate([
+            'status' => 'required|string|max:255', 
+            'slug' => 'required|string|max:255'
+        ]);
+    
+        $apply = jobApplicant::findOrFail($id);
+    
+        $apply->status = $request->status;
+        $apply->slug = $request->slug;
+        $apply->save();
+
+        return redirect()->back()->with('success', 'Data pekerjaan berhasil diperbarui');
+    }
+
 
     // Delete Job
     public function destroy($id)

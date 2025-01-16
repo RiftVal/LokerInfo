@@ -8,6 +8,8 @@
                 <td>Name</td>
                 <td>Location Home</td>
                 <td>No Telp</td>
+                <td>Status</td>
+                <td>Next Step</td>
                 <td>Resume</td>
                 <td>Surat Lamaran</td>
             </tr>
@@ -20,6 +22,8 @@
                     <td>{{$item->name}}</td>
                     <td>{{$item->home_location}}</td>
                     <td>{{$item->no_telp}}</td>
+                    <td>{{$item->status}}</td>
+                    <td>{{$item->slug}}</td>
                     <td><a href="{{asset('storage/'.$item->resume)}}" class="btn btn-primary">Link Resume</a></td>
                     <td><a href="{{asset('storage/'.$item->job_applicant)}}" class="btn btn-primary">Link Job Applicant</a></td>
                 </tr>

@@ -1,12 +1,12 @@
 @include('layouts/header_admin')
 <div class="container-fluid">
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Companies Add Job</h1>
+        <h1 class="h3 mb-0 text-gray-800">Admin Add Category</h1>
     </div>
 
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        Add job
+        Add Category
     </button>
     
     <!-- Modal Add Job -->
@@ -14,7 +14,7 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Add Job</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Add Category</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
